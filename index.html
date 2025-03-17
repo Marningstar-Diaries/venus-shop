@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Vénus Shop - Accueil</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="img/logo.jpg" alt="Logo">
+            Vénus Shop
+        </div>
+        <button class="menu-toggle">☰</button>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="bottom">Acceuil</a></li>
+                <li><a href="collection.html">Collections</a></li>
+                <li><a href="panier.html" class="panier"><img src="img/panier.png" alt=""><span>0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Bienvenue sur <span>Vénus Shop</span></h1>
+            <p>Votre destination en ligne pour une mode élégante et tendance !</p>
+            <a href="collection.html" class="btn">Découvrir la collection</a>
+        </div>
+    </section>
+
+    <!-- Sections de présentation -->
+    <section class="content">
+        <div class="section">
+            <img src="img/habille.jpg" alt="Collection vêtements">
+            <div class="text">
+                <h2>Découvrez notre collection exclusive</h2>
+                <p>Des vêtements soigneusement sélectionnés pour hommes, femmes et enfants.</p>
+            </div>
+        </div>
+
+        <div class="section reverse">
+            <img src="img/pantalon.jpg" alt="Styles variés">
+            <div class="text">
+                <h2>Exprimez votre style unique</h2>
+                <p>Des pièces intemporelles, des looks modernes et des accessoires tendance.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <img src="img/boubou.jpg" alt="Qualité des tissus">
+            <div class="text">
+                <h2>Qualité et accessibilité</h2>
+                <p>Des matériaux premium, des designs innovants et des prix abordables.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="presentation">
+        <p><strong>Livraison rapide, produits de qualités et service client exceptionnel</strong> – chez <span>Vénus Shop</span>, votre satisfaction est notre priorité.</p>
+        <a href="collection.html" class="btn">Commencez votre shopping</a>
+    </div>
+
+    <footer>
+        <p>Copyright © 2025 Vénus Shop - Tous droits réservés</p>
+        <div class="socials">
+            <a href="#">Facebook</a> | 
+            <a href="#">Instagram</a> | 
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll("div");
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navMenu = document.querySelector("nav ul");
+
+            menuToggle.addEventListener("click", function () {
+                navMenu.classList.toggle("show"); // Ajoute ou enlève la classe "show"
+            });
+        });
+    </script>
+</body>
+</html>

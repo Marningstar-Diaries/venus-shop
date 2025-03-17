@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Boutique de Mode</title>
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e6005c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            border: 1px solid #333;
+        }
+
+        /* Icône du menu burger */
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #333;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .panier img {
+            width: 40px;
+            height: 35px;
+        }
+
+        .bottom {
+            padding-bottom: 5px;
+            border-bottom: 2px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: white;
+                width: 200px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+                padding: 10px;
+                z-index: 1000;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+        }
+
+        /* Effet fade-in */
+        .fade-in {
+            padding: 50px;
+            text-align: center;
+            background: #fff;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Conteneur principal */
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .container img {
+            max-width: 400px;
+            max-height: 400px;
+        }
+
+        .about {
+            max-width: 500px;
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 30px;
+            font-style: italic;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 16px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .price {
+            font-style: italic;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* Boutons */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .btn button {
+            width: 100%;
+            height: 35px;
+            border-radius: 5px;
+            background-color: #fd3175;
+            color: aliceblue;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            border: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn button:hover {
+            background-color: #e6005c;
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn button:active {
+            background-color: #e6005c;
+            transform: scale(1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: white;
+}
+
+.socials a {
+    color: #ff4081;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.socials a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+
+     <!-- Header -->
+     <header>
+        <div class="logo">
+            <img src="../img/logo.jpg" alt="Logo">
+            Vénus Shop
+        </div>
+        <button class="menu-toggle">☰</button>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Acceuil</a></li>
+                <li><a href="../collection.html" class="bottom">Collections</a></li>
+                <li><a href="../panier.html" class="panier"><img src="../img/panier.png" alt=""><span>0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="fade-in">
+        <div class="container">
+            <img src="../img/2.jpg" alt="Produit">
+            <div class="about">
+                <h1 class="title">Robe Fleurie</h1>
+                <p><span class="price">10.000</span> FCFA</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic mollitia, doloribus, voluptatum placeat eius qui veritatis dicta porro animi, quaerat non repudiandae! Laborum ipsam mollitia, deleniti et ea optio iure!</p>
+                <div class="btn">
+                    <button class="add-to-cart">Ajouté au panier</button>
+                    <button >Commandé maintenant</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Copyright © 2025 Vénus Shop - Tous droits réservés</p>
+        <div class="socials">
+            <a href="#">Facebook</a> | 
+            <a href="#">Instagram</a> | 
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // ✅ Gestion du menu burger
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navMenu = document.querySelector("nav ul");
+    
+            menuToggle.addEventListener("click", function () {
+                navMenu.classList.toggle("show");
+            });
+    
+            // ✅ Animation fade-in au scroll
+            const elements = document.querySelectorAll(".fade-in");
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+    
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+    
+            // ✅ Gestion des boutons "Ajouter au panier" et "Commander maintenant"
+            document.querySelectorAll(".btn button").forEach(button => {
+                button.addEventListener("click", function (event) {
+                    event.stopPropagation();
+                    
+                    if (this.textContent.includes("Commandé maintenant")) {
+                        const productContainer = this.closest(".about"); // Trouver le conteneur du produit
+                        const productName = productContainer.querySelector(".title").textContent; // Récupérer le nom du produit
+                        const productPrice = productContainer.querySelector(".price").textContent; // Récupérer le prix du produit
+                        
+                        // Numéro WhatsApp du vendeur (remplace par ton numéro au format international)
+                        const phoneNumber = "2250103887396"; 
+    
+                        // Message pré-rempli
+                        const message = `Bonjour, je voudrais cet article : \n${productName} : ${productPrice}`;
+                        
+                        // Encoder le message pour l'URL
+                        const encodedMessage = encodeURIComponent(message);
+                        
+                        // Rediriger vers WhatsApp
+                        window.location.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const panier = JSON.parse(localStorage.getItem("panier")) || [];
+
+        document.querySelector(".add-to-cart").addEventListener("click", function () {
+            const title = document.querySelector("h1").textContent;
+            const price = document.querySelector(".price").textContent;
+            const image = document.querySelector(".container img").src;
+
+            const produit = { title, price, image };
+            panier.push(produit);
+            localStorage.setItem("panier", JSON.stringify(panier));
+        });
+    });
+</script>
+</body>
+</html>

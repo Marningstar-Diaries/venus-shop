@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vénus Shop | Collections</title>
+    
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4081;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            border: 1px solid #333;
+        }
+
+        /* Icône du menu (hamburger) */
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #333;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .panier img {
+            width: 40px;
+            height: 35px;
+        }
+        .bottom {
+            padding-bottom: 5px;
+            border-bottom: 2px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: white;
+                width: 200px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+                padding: 10px;
+                z-index: 1000;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Section Produits */
+        h2 {
+            font-size: 28px;
+            margin: 40px 0px;
+            text-align: center;
+        }
+
+        div {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        div.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .products {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .product {
+            background: #fff;
+            padding: 10px;
+            border-radius: 7px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .product img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .title {
+            margin: 10px 0;
+            font-size: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 700;
+        }
+
+        .product .price {
+            font-style: italic;
+            font-size: 15px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 600;
+        }
+
+        .product .btn {
+            width: 90%;
+            margin-top: 10px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: #ff4081;
+            color: aliceblue;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            border: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .product .btn:hover {
+            background-color: #e6005c;
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+        .product .btn:active {
+            background-color: #e6005c;
+            transform: scale(1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Footer */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+    background: #1a1919;
+    color: white;
+}
+
+.socials a {
+    color: #ff4081;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.socials a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="img/logo.jpg" alt="Logo">
+            Vénus Shop
+        </div>
+        <button class="menu-toggle">☰</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Acceuil</a></li>
+                <li><a href="collection.html" class="bottom">Collections</a></li>
+                <li><a href="panier.html" class="panier"><img src="img/panier.png" alt=""><span>0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Produits Vedettes -->
+    <section class="fade-in">
+        <h2>Nos Nouveautés</h2>
+        <div class="products">
+            <div class="product">
+                <img src="img/2.jpg" alt="Robe Fleurie">
+                <p class="title">Robe Fleurie</p>
+                <p><span class="price">10.000</span> FCFA</p>
+                <button class="btn">Ajouté au panier</button>
+            </div>
+            <div class="product">
+                <img src="img/5.jpg" alt="Maillot">
+                <p class="title">Maillot</p>
+                <p><span class="price">20.000</span> FCFA</p>
+                <button class="btn">Ajouté au panier</button>
+            </div>
+            <div class="product">
+                <img src="img/6.jpg" alt="Robe Fleurie">
+                <p class="title">Ivoire</p>
+                <p><span class="price">15.000</span> FCFA</p>
+                <button class="btn">Ajouté au panier</button>
+            </div>
+            <div class="product">
+                <img src="img/2.jpg" alt="Maillot">
+                <p class="title">Boubou</p>
+                <p><span class="price">17.000</span> FCFA</p>
+                <button class="btn">Ajouté au panier</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Copyright © 2025 Vénus Shop - Tous droits réservés</p>
+        <div class="socials">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <!-- Script -->
+     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll("div");
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navMenu = document.querySelector("nav ul");
+
+        menuToggle.addEventListener("click", function () {
+            navMenu.classList.toggle("show");
+        });
+
+        const products = document.querySelectorAll(".product");
+        const productLinks = [
+            "About/about.html",
+            "About/about2.html",
+            "About/about3.html",
+            "About/about4.html"
+        ];
+
+        products.forEach((product, index) => {
+            product.addEventListener("click", function (event) {
+                // Vérifier si l'élément cliqué est bien le produit et non un bouton
+                if (!event.target.closest("button")) {
+                    window.location.href = productLinks[index];
+                }
+            });
+        });
+
+        const panier = JSON.parse(localStorage.getItem("panier")) || [];
+
+        document.querySelectorAll(".btn").forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.stopPropagation(); // Empêcher la redirection
+                
+                const product = this.closest(".product");
+                const title = product.querySelector(".title").textContent;
+                const price = product.querySelector(".price").textContent;
+                const image = product.querySelector("img").src;
+
+                const produit = { title, price, image };
+                panier.push(produit);
+                localStorage.setItem("panier", JSON.stringify(panier));
+            });
+        });
+    });
+    </script>
+
+</body>
+</html>

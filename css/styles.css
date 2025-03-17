@@ -1,0 +1,238 @@
+/* Reset et styles de base */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+    text-align: center;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid #333;
+}
+
+/* Icône du menu (hamburger) */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #333;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.panier img {
+    width: 40px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.bottom {
+    padding-bottom: 5px;
+    border-bottom: 2px solid #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: white;
+        width: 200px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Hero */
+.hero {
+    background: url('../img/cover.jpg') center/cover no-repeat;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #ff4081;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #e6005c;
+}
+.btn:active {
+    background-color: #e6005c;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* SECTIONS */
+.content {
+    padding: 50px 10%;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+}
+
+.section.reverse {
+    flex-direction: row-reverse;
+}
+
+.section img {
+    width: 30%;
+    border-radius: 10px;
+}
+
+.text {
+    padding: 20px;
+}
+
+h2 {
+    color: #d32f2f;
+    margin-bottom: 10px;
+}
+
+/* Présentation */
+.presentation {
+    max-width: 800px;
+    margin: 0px auto 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.presentation h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.presentation p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.presentation span {
+    font-weight: bold;
+    color: #ff4081;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: white;
+}
+
+.socials a {
+    color: #ff4081;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.socials a:hover {
+    text-decoration: underline;
+}
+
+
+/* Effet Fluid */
+div {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+div.show {
+    opacity: 1;
+    transform: translateY(0);
+}
